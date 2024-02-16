@@ -8,46 +8,60 @@ public class ut5_03_01 {
         int [] array = {1,2,3,4,5};
         System.out.println(existeIndice(array,4));
 
-        System.out.println(Arrays.toString(borrarPorIndice(array, 2)));
+        System.out.println(Arrays.toString(borrarPorIndice(array, 3)));
 
         System.out.println(Arrays.toString(insertarEnIndice(array, 3, 9)));
 
     }
 
     private static boolean existeIndice(int [] muestra, int indice){
-
-        return indice >= 0 && indice < muestra.length;
+        if(muestra != null && indice >= 0 && indice < muestra.length){
+            return true;
+        }
+        return false;
     }
     public static int[] borrarPorIndice(int[] original, int indice) {
+        int[] resultado = null;
         if (existeIndice(original, indice)) {
-            int[] resultado = new int[original.length - 1];
-            int contadorResultado = 0;
+            resultado = new int[original.length - 1];
+            int j = 0;
             for (int i = 0; i < original.length; i++) {
                 if (i != indice) {
-                    resultado[contadorResultado] = original[i];
-                    contadorResultado++;
-                }
-            }
-            return resultado;
-        } else {
-            return original;
-        }
-    }
-
-    public static int[] insertarEnIndice(int[] original, int indice, int valor) {
-        if (existeIndice(original, indice)) {
-            int[] resultado = new int[original.length + 1];
-            for (int i = 0, j = 0; i < resultado.length; i++) {
-                if (i == indice) {
-                    resultado[i] = valor;
-                } else {
-                    resultado[i] = original[j];
+                    resultado[j] = original[i];
                     j++;
                 }
             }
-            return resultado;
-        } else {
-            return original;
         }
+            return resultado;
+    }
+
+    public static int[] insertarEnIndice(int[] original, int indice, int valor) {
+        int [] resultado = null;
+        if (existeIndice(original, indice)) {
+            resultado = new int[original.length + 1];
+            int j = 0;
+            for (int i = 0; i < original.length; i++) {
+                if (i != indice) {
+                    resultado[j] = original[i];
+                    j++;
+                } else {
+                    resultado[j] = valor;
+                    j++;
+                    resultado[j] = original[i];
+                    j++;
+                }
+            }
+        }
+        return resultado;
+    }
+
+    public static boolean existeIndice2(int[] muestra, int indice){
+        boolean resultado = true;
+        try {
+            int i = muestra[indice];
+        }catch (ArrayIndexOutOfBoundsException e){
+            resultado = false;
+        }
+        return resultado;
     }
 }
