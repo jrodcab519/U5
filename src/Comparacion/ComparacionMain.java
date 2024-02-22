@@ -71,25 +71,12 @@ public class ComparacionMain {
                     salir = true;
             }
         }
-
-
-
-
-
-
-
-
+        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
         System.out.println(p1.equals(p2));
         System.out.println(p1.equals(p3));
-
-
-
-
-
+        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
         System.out.println(p1.compareTo(p2));
         System.out.println(p1.compareTo(p3));
-
-     
     }
     public static int dibujarMenu() {
         System.out.println();
