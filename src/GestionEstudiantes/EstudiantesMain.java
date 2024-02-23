@@ -1,5 +1,6 @@
 package GestionEstudiantes;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -51,7 +52,6 @@ public class EstudiantesMain {
                         }
                     }
                     break;
-
                 case 0:
                     salir = true;
             }
@@ -68,7 +68,12 @@ public class EstudiantesMain {
         System.out.println("3. Eliminar un grupo de estudiantes");
         System.out.println("4. Seleccionar un grupo de estudiantes");
         System.out.println("0. Salir");
-        int opcion = s.nextInt();
+        int opcion = 5;
+        try {
+            opcion = s.nextInt();
+        }catch(InputMismatchException i) {
+            System.out.println("Formato erroneo, Introduce un número entero");
+        }
         s.nextLine();
         return opcion;
     }
